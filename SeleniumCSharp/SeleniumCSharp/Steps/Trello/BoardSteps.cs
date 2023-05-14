@@ -1,0 +1,40 @@
+﻿using NUnit.Framework;
+using SeleniumCSharp.Base;
+using SeleniumCSharp.Config;
+using SeleniumCSharp.Pages;
+using SeleniumCSharp.Pages.Trello;
+using TechTalk.SpecFlow;
+
+namespace SeleniumCSharp.Steps.Trello;
+
+[Binding]
+public class BoardSteps:BasePage
+{
+    [Given(@"The user is on a Trello board")]
+    public void GivenTheUserIsOnATrelloBoard()
+    {
+        CurrentPage = GetInstance<HomePage>();
+        CurrentPage=CurrentPage.As<HomePage>().OpenTrelloSite();
+        Assert.True(CurrentPage.As<LoginPage>().LogInPageIsDisplayed(),"Login Page must be present");
+        CurrentPage.As<LoginPage>().EnterEmail(Settings.UserName);
+        CurrentPage.As<LoginPage>().ClickContinueButton();
+        CurrentPage.As<LoginPage>().AtlassianPageIsDisplayed();
+        CurrentPage.As<LoginPage>().EnterPassword(Settings.Password);
+        CurrentPage=CurrentPage.As<LoginPage>().ClickLogInButton();
+    }
+
+    [When(@"User create a new board with name ""(.*)"" in the page")]
+    public void WhenUserCreateANewBoardWithNameInThePage(string title)
+    {
+        CurrentPage.As<BoardPage>().ConfirmBoardPageIsDisplayed();
+        CurrentPage.As<BoardPage>().CreateNewBoard(title);
+        CurrentPage = CurrentPage.As<BoardPage>().ClickCreateBoardSumbit();
+    }
+
+    [Then(@"The new Board is successfully created")]
+    public void ThenTheNewBoardIsSuccessfullyCreated()
+    {
+        Assert.True(CurrentPage.As<CardPage>().ConfirmToDoCardPresent(),"ToDOo Cart page must be present");
+    }
+    
+}
