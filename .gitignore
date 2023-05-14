@@ -366,3 +366,10 @@ FodyWeavers.xsd
 /SeleniumCSharp/SeleniumCSharp/Result/Result_*.html
 /SeleniumCSharp/SeleniumCSharp/bin/Debug/
 /SeleniumCSharp/SeleniumCSharp/bin/
+/SeleniumCSharp/.idea/
+/SeleniumCSharp/.vs/
+/RestSharpCSharp/.idea/
+/RestSharpCSharp/.vs/
+.idea/
+.vs/
+
