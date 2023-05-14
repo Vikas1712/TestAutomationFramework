@@ -8,9 +8,9 @@
 
 ##  ✨ Instructions for Windows
 -  Clone the repo \
-   `https://gitlab.com/the-ta-crowd/SeleniumUsingCSharp`
-- Once done, open the solution in Visual Studio IDE \
-  `SeleniumCSharpNetCore.sln`
+   `https://github.com/Vikas1712/TestAutomationFramework.git`
+- Once done, open the solution in Visual Studio IDE or JetBrain Rider \
+  `SeleniumCSharp.sln`
 - Install Nuget packgae \
   `Right-click on project and click "Manage NuGet Package" and install it`
 
@@ -22,13 +22,14 @@
 
 ##  ✨ Structure
 - `Base`- Page Initialization with base class
-- `Config`- Configuratio of config xml file
+- `Config`- Configuration of config xml file
 - `Extension`- WebDriver and WebElement extension method
 - `Feature`- Feature reside here
 - `Hooks`- Specflow hooks
 - `Pages`- Pages of POM (Page Object Model)
 - `Steps`- Step definition glue code reside here
 - `Result`- Test result
+- `ReadMe`- Framework development and instruction document
 
 ##  ✨ CodeBase is developed on below  components
 -   [🚀 Page Initialization with Base Class]

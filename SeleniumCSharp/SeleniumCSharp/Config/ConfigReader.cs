@@ -4,6 +4,8 @@ We are using System.XML namespace and will be using
 XPathItem and XPathDocument classes to perform operations.
 */
 
+using System;
+using System.IO;
 using System.Xml.XPath;
 using SeleniumCSharp.Base;
 
