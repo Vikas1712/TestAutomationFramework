@@ -76,23 +76,23 @@ namespace SeleniumCSharp.Feature.Trello
         public virtual async System.Threading.Tasks.Task FeatureBackgroundAsync()
         {
 #line 4
-#line hidden
+    #line hidden
 #line 5
- await testRunner.GivenAsync("The user is on a Trello board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        await testRunner.GivenAsync("The user is on a Trello board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user can create a new board")]
+        [NUnit.Framework.DescriptionAttribute("User can create a new board")]
         [NUnit.Framework.CategoryAttribute("Board")]
-        public async System.Threading.Tasks.Task TheUserCanCreateANewBoard()
+        public async System.Threading.Tasks.Task UserCanCreateANewBoard()
         {
             string[] tagsOfScenario = new string[] {
                     "Board"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user can create a new board", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User can create a new board", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 8
-this.ScenarioInitialize(scenarioInfo);
+    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -102,13 +102,16 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 4
-await this.FeatureBackgroundAsync();
+    await this.FeatureBackgroundAsync();
 #line hidden
 #line 9
-    await testRunner.WhenAsync("User create a new board with name \"Testing1\" in the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        await testRunner.WhenAsync("User create a new board with name \"Testing1\" in the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
-    await testRunner.ThenAsync("The new Board is successfully created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        await testRunner.ThenAsync("The new Board is successfully created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 11
+        await testRunner.AndAsync("User delete the active board too", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

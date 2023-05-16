@@ -76,23 +76,23 @@ namespace SeleniumCSharp.Feature.Trello
         public virtual async System.Threading.Tasks.Task FeatureBackgroundAsync()
         {
 #line 4
-#line hidden
+    #line hidden
 #line 5
- await testRunner.GivenAsync("The user is on a Trello board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        await testRunner.GivenAsync("The user is on a Trello board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user can add a ToDo new card")]
+        [NUnit.Framework.DescriptionAttribute("User can add new card in ToDo Lane")]
         [NUnit.Framework.CategoryAttribute("Card")]
-        public async System.Threading.Tasks.Task TheUserCanAddAToDoNewCard()
+        public async System.Threading.Tasks.Task UserCanAddNewCardInToDoLane()
         {
             string[] tagsOfScenario = new string[] {
                     "Card"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user can add a ToDo new card", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User can add new card in ToDo Lane", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 8
-this.ScenarioInitialize(scenarioInfo);
+    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -102,33 +102,36 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 4
-await this.FeatureBackgroundAsync();
+    await this.FeatureBackgroundAsync();
 #line hidden
 #line 9
-    await testRunner.GivenAsync("Register User is on the Card page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        await testRunner.GivenAsync("Register User is on the Card page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 10
-    await testRunner.WhenAsync("User create a new card with title \"Adding title into To Do Card Lane\" in ToDo Lan" +
+        await testRunner.WhenAsync("User create a new card with title \"Adding title into To Do Card Lane\" in ToDo Lan" +
                         "e", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
-    await testRunner.ThenAsync("That new to do card is added successfully on the board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        await testRunner.ThenAsync("That new to do card is added successfully on the board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 12
+        await testRunner.AndAsync("User delete the active board too", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user can add a Doing new card")]
+        [NUnit.Framework.DescriptionAttribute("User can add new card in Doing Lane")]
         [NUnit.Framework.CategoryAttribute("Card")]
-        public async System.Threading.Tasks.Task TheUserCanAddADoingNewCard()
+        public async System.Threading.Tasks.Task UserCanAddNewCardInDoingLane()
         {
             string[] tagsOfScenario = new string[] {
                     "Card"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user can add a Doing new card", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 14
-this.ScenarioInitialize(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User can add new card in Doing Lane", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 15
+    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -138,33 +141,36 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 4
-await this.FeatureBackgroundAsync();
-#line hidden
-#line 15
- await testRunner.GivenAsync("Register User is on the Card page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    await this.FeatureBackgroundAsync();
 #line hidden
 #line 16
- await testRunner.WhenAsync("User create a new card with title \"Adding title into Doing Card Lane\" in Doing La" +
-                        "ne", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        await testRunner.GivenAsync("Register User is on the Card page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 17
- await testRunner.ThenAsync("That new to do card is added successfully on the board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        await testRunner.WhenAsync("User create a new card with title \"Adding title into Doing Card Lane\" in Doing La" +
+                        "ne", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 18
+        await testRunner.ThenAsync("That new to do card is added successfully on the board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 19
+        await testRunner.AndAsync("User delete the active board too", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user can add a Done new card")]
+        [NUnit.Framework.DescriptionAttribute("User can add new card in Done Lane")]
         [NUnit.Framework.CategoryAttribute("Card")]
-        public async System.Threading.Tasks.Task TheUserCanAddADoneNewCard()
+        public async System.Threading.Tasks.Task UserCanAddNewCardInDoneLane()
         {
             string[] tagsOfScenario = new string[] {
                     "Card"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user can add a Done new card", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 20
-this.ScenarioInitialize(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User can add new card in Done Lane", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 22
+    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -174,33 +180,36 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 4
-await this.FeatureBackgroundAsync();
-#line hidden
-#line 21
- await testRunner.GivenAsync("Register User is on the Card page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 22
- await testRunner.WhenAsync("User create a new card with title \"Adding title into Done Card Lane\" in Done Lane" +
-                        "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    await this.FeatureBackgroundAsync();
 #line hidden
 #line 23
- await testRunner.ThenAsync("That new to do card is added successfully on the board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        await testRunner.GivenAsync("Register User is on the Card page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 24
+        await testRunner.WhenAsync("User create a new card with title \"Adding title into Done Card Lane\" in Done Lane" +
+                        "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 25
+        await testRunner.ThenAsync("That new to do card is added successfully on the board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 26
+        await testRunner.AndAsync("User delete the active board too", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The user can delete a Done new card")]
+        [NUnit.Framework.DescriptionAttribute("User can delete new card in the board")]
         [NUnit.Framework.CategoryAttribute("Card")]
-        public async System.Threading.Tasks.Task TheUserCanDeleteADoneNewCard()
+        public async System.Threading.Tasks.Task UserCanDeleteNewCardInTheBoard()
         {
             string[] tagsOfScenario = new string[] {
                     "Card"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The user can delete a Done new card", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 26
-this.ScenarioInitialize(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User can delete new card in the board", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 29
+    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -210,19 +219,19 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 4
-await this.FeatureBackgroundAsync();
-#line hidden
-#line 27
- await testRunner.GivenAsync("User can view the Card on the board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 28
- await testRunner.WhenAsync("User deletes all the cards", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 29
- await testRunner.AndAsync("User delete the active board too", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    await this.FeatureBackgroundAsync();
 #line hidden
 #line 30
- await testRunner.ThenAsync("That cards are no longer visible on board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        await testRunner.GivenAsync("User can view the Card on the board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 31
+        await testRunner.WhenAsync("User deletes all the cards", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 32
+        await testRunner.AndAsync("User delete the active board too", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 33
+        await testRunner.ThenAsync("That cards are no longer visible on board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

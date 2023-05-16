@@ -5,20 +5,19 @@ that defer the specification of one or more types until the
 classes and method is declared and instantiated by code
 */
 
-namespace SeleniumCSharp.Base
+namespace SeleniumCSharp.Base;
+
+public abstract class BasePage : Base
 {
-    public abstract class BasePage : Base
+    protected TPage GetInstance<TPage>() where TPage : new()
     {
-        protected TPage GetInstance<TPage>() where TPage : new()
-        {
-            TPage pageInstance = new();
+        TPage pageInstance = new();
 
-            return pageInstance;
-        }
+        return pageInstance;
+    }
 
-        public TPage As<TPage>() where TPage : BasePage
-        {
-            return (TPage)this;
-        }
+    public TPage As<TPage>() where TPage : BasePage
+    {
+        return (TPage)this;
     }
 }

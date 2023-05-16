@@ -1,7 +1,6 @@
-﻿namespace SeleniumCSharp.Base
+﻿namespace SeleniumCSharp.Base;
+
+public class Base
 {
-    public class Base
-    {
-        protected BasePage CurrentPage { get; set; }
-    }
+    protected BasePage CurrentPage { get; set; }
 }

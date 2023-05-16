@@ -1,113 +1,92 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using SeleniumCSharp.Base;
 using SeleniumCSharp.Config;
 
-namespace SeleniumCSharp.Extensions
+namespace SeleniumCSharp.Extensions;
+
+public static class WebElementExtension
 {
-    public static class WebElementExtension
+    public static void SelectDdl(this IWebElement element, string value)
     {
-        public static void SelectDdl(this IWebElement element, string value)
-        {
-            SelectElement ddl = new(element);
-            ddl.SelectByText(value);
-        }
+        SelectElement ddl = new(element);
+        ddl.SelectByText(value);
+    }
 
-        public static string GetText(IWebElement element)
-        {
-            return element.Text;
-        }
+    public static string GetText(IWebElement element)
+    {
+        return element.Text;
+    }
 
-        public static string GetSelectedDropDown(IWebElement element)
-        {
-            SelectElement ddl = new(element);
-            return ddl.AllSelectedOptions.First().ToString();
-        }
+    public static string? GetSelectedDropDown(IWebElement element)
+    {
+        SelectElement ddl = new(element);
+        return ddl.AllSelectedOptions.First().ToString();
+    }
 
-        public static IList<IWebElement> GetSelectedListOptions(IWebElement element)
-        {
-            SelectElement ddl = new(element);
-            return ddl.AllSelectedOptions;
-        }
+    public static IList<IWebElement> GetSelectedListOptions(IWebElement element)
+    {
+        SelectElement ddl = new(element);
+        return ddl.AllSelectedOptions;
+    }
 
-        /// <summary>
-        /// Check if the element exist
-        /// </summary>
-        /// <param name="element"></param>
-        /// <returns></returns>
-        private static bool IsElementPresent(IWebElement element)
+    /// <summary>
+    ///     Check if the element exist
+    /// </summary>
+    /// <param name="element"></param>
+    /// <returns></returns>
+    private static bool IsElementPresent(IWebElement element)
+    {
+        try
         {
-            try
-            {
-                return element.IsDisplayed();
-            }
-            catch
-            {
-                return false;
-            }
+            return element.IsDisplayed();
         }
-        /// <summary>
-        /// Return True if element is visible on page
-        /// </summary>
-        /// <param name="element"></param>
-        /// <returns></returns>
-        public static bool IsDisplayed(this IWebElement element)
+        catch
         {
-            try
-            {
-               return element.Displayed;
-            }
-            catch (Exception)
-            {
-              return false;
-            }
+            return false;
         }
+    }
 
-        /// <summary>
-        /// Assert if the Element is present
-        /// </summary>
-        /// <param name="element"></param>
-        public static void AssertElementPresent(this IWebElement element)
+    /// <summary>
+    ///     Return True if element is visible on page
+    /// </summary>
+    /// <param name="element"></param>
+    /// <returns></returns>
+    public static bool IsDisplayed(this IWebElement element)
+    {
+        try
         {
-            if (!IsElementPresent(element))
-                throw new AssertionException("AssertElementNotPresent exception");
+            return element.Displayed;
         }
-
-        private static IWebElement WaitForElementClickable(this IWebElement element)
+        catch (Exception)
         {
-            WebDriverWait w = new(DriverContext.Driver, TimeSpan.FromSeconds(Settings.DefaultWait));
-            var matchingElement = w.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
-            //identify element then obtain text
-            if (matchingElement == null)
-            {
-                Assert.Fail("Element hasn't become clickable in the provided time");
-            }
-            return matchingElement;
+            return false;
         }
+    }
 
-        public static IWebElement ClickElement(this IWebElement locator)
+    /// <summary>
+    ///     Assert if the Element is present
+    /// </summary>
+    /// <param name="element"></param>
+    public static void AssertElementPresent(this IWebElement element)
+    {
+        if (!IsElementPresent(element))
+            throw new AssertionException("AssertElementNotPresent exception");
+    }
+
+    public static void ClickWithWait(this IWebElement element)
+    {
+        try
         {
-            var element = WaitForElementClickable(locator);
+            var wait = new WebDriverWait(element.GetDriver(), TimeSpan.FromSeconds(Settings.DefaultWait));
+            wait.Until(driver => element.Displayed && element.Enabled);
             element.Click();
-            return element;
         }
-        public static void ClickWithWait(this IWebElement element)
+        catch (Exception ex)
         {
-            try
-            {
-                var wait = new WebDriverWait(element.GetDriver(), TimeSpan.FromSeconds(Settings.DefaultWait));
-                wait.Until(driver => element.Displayed && element.Enabled);
-                element.Click();
-            }
-            catch (Exception ex)
-            {
-                throw new NoSuchElementException($"Failed to click element after {Settings.DefaultWait} seconds: {ex.Message}");
-            }
+            throw new NoSuchElementException(
+                $"Failed to click element after {Settings.DefaultWait} seconds: {ex.Message}");
         }
+    }
 
     public static void SendKeys(this IWebElement element, string text, int timeoutInSeconds)
     {
@@ -119,7 +98,8 @@ namespace SeleniumCSharp.Extensions
         }
         catch (Exception ex)
         {
-            throw new NoSuchElementException($"Failed to send keys '{text}' to element after {timeoutInSeconds} seconds: {ex.Message}");
+            throw new NoSuchElementException(
+                $"Failed to send keys '{text}' to element after {timeoutInSeconds} seconds: {ex.Message}");
         }
     }
 
@@ -133,7 +113,8 @@ namespace SeleniumCSharp.Extensions
         }
         catch (Exception ex)
         {
-            throw new NoSuchElementException($"Failed to get text from element after {timeoutInSeconds} seconds: {ex.Message}");
+            throw new NoSuchElementException(
+                $"Failed to get text from element after {timeoutInSeconds} seconds: {ex.Message}");
         }
     }
 
@@ -147,14 +128,13 @@ namespace SeleniumCSharp.Extensions
         }
         catch (Exception ex)
         {
-            throw new NoSuchElementException($"Failed to get attribute '{attributeName}' from element after {timeoutInSeconds} seconds: {ex.Message}");
+            throw new NoSuchElementException(
+                $"Failed to get attribute '{attributeName}' from element after {timeoutInSeconds} seconds: {ex.Message}");
         }
     }
 
     private static IWebDriver GetDriver(this IWebElement element)
     {
         return ((IWrapsDriver)element).WrappedDriver;
-    }
-        
     }
 }

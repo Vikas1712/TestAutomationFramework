@@ -1,0 +1,6 @@
+﻿services:
+  seleniumcsharp:
+    image: seleniumcsharp
+    build:
+      context: .
+      dockerfile: SeleniumCSharp/Dockerfile

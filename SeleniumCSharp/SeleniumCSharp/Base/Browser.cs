@@ -8,7 +8,7 @@ namespace SeleniumCSharp.Base;
 
 public abstract class Browser
 {
-    public Browser Type { get; set; }
+    public Browser? Type { get; set; }
 }
 
 public enum BrowserType

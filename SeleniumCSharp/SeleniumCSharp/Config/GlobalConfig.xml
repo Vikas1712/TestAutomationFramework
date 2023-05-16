@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SeleniumCSharpFramework>
-	<RunSettings>
-		<PracticeAutomationURL>https://automationpractice.com</PracticeAutomationURL>
-		<TrelloURL>https://trello.com</TrelloURL>
-		<Username>letsmailvikas@gmail.com</Username>
-		<Password>Password</Password>
-		<Browser>Chrome</Browser>
-		<DefaultWait>20</DefaultWait>
-	</RunSettings>
+    <RunSettings>
+        <TrelloURL>https://trello.com</TrelloURL>
+        <Username>letsmailvikas@gmail.com</Username>
+        <Password>Password</Password>
+        <Browser>Chrome</Browser>
+        <DefaultWait>100</DefaultWait>
+    </RunSettings>
 </SeleniumCSharpFramework>

@@ -6,12 +6,11 @@ Hence we created a static base class and created a static property
 
 using OpenQA.Selenium;
 
-namespace SeleniumCSharp.Base
-{
-    public static class DriverContext
-    {
-        public static IWebDriver Driver { get; set; }
+namespace SeleniumCSharp.Base;
 
-        public static Browser Browser { get; set; }
-    }
+public static class DriverContext
+{
+    public static IWebDriver Driver { get; set; }
+
+    public static Browser? Browser { get; set; }
 }

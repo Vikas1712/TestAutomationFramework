@@ -373,3 +373,4 @@ FodyWeavers.xsd
 .idea/
 .vs/
 
+/SeleniumCSharp/SeleniumCSharp/Result*.html
