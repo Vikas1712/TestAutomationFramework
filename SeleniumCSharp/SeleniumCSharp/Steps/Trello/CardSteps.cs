@@ -11,7 +11,7 @@ public class CardSteps : BasePage
     public void GivenRegisterUserIsOnTheCardPage()
     {
         CurrentPage = GetInstance<BoardPage>();
-        //Assert.True(CurrentPage.As<BoardPage>().ConfirmBoardPageIsDisplayed(), "Board Page is Displayed");
+        Assert.True(CurrentPage.As<BoardPage>().ConfirmBoardPageIsDisplayed(), "Board Page is Displayed");
         CurrentPage.As<BoardPage>().CreateNewBoard("TestingDemo");
         CurrentPage = CurrentPage.As<BoardPage>().ClickCreateBoardSumbit();
         Assert.True(CurrentPage.As<CardPage>().ConfirmToDoCardPresent(), "User is on Card Page");

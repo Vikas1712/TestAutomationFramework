@@ -145,6 +145,8 @@ public class Hooks
                 ChromeOptions option = new();
                 option.AddArguments("start-maximized");
                 option.AddArguments("--disable-gpu");
+                option.AddArgument("--no-sandbox");
+                option.AddArgument("--ignore-certificate-errors");
                 Console.WriteLine("Setup");
                 DriverContext.Driver = new ChromeDriver(option);
                 break;

@@ -26,7 +26,7 @@ public class BoardSteps : BasePage
     public void WhenUserCreateANewBoardWithNameInThePage(string title)
     {
         CurrentPage = GetInstance<BoardPage>();
-        //Assert.True(CurrentPage.As<BoardPage>().ConfirmBoardPageIsDisplayed(), "BoardPage is Not Displayed");
+        Assert.True(CurrentPage.As<BoardPage>().ConfirmBoardPageIsDisplayed(), "BoardPage is Not Displayed");
         CurrentPage.As<BoardPage>().CreateNewBoard(title);
         CurrentPage = CurrentPage.As<BoardPage>().ClickCreateBoardSumbit();
     }
