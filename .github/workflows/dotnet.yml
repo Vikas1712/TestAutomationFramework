@@ -1,0 +1,40 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: Build and Run .NET 6 Project
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Restore Dependencies
+        run: dotnet restore ./SeleniumCSharp
+
+      - name: Build Project
+        run: dotnet build --configuration Release --no-restore ./SeleniumCSharp
+
+      - name: Run Tests
+        run: dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage" ./SeleniumCSharp
+
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path: |
+            ./SeleniumCSharp/Result/
