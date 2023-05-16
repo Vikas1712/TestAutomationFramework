@@ -1,22 +1,32 @@
-﻿name: Build and Run .NET 6 Project
+name: SELENIUMCSHARP
+
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - master
 
 jobs:
-  build-and-run:
-    runs-on: ubuntu-latest
-
+  build-and-test:
+    runs-on: windows-latest
+    
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+    - name: 'Checkout'
+      uses: actions/checkout@v2
 
-      - name: Build Docker Image
-        run: docker build -t Dockerfile ./SeleniumCSharp
+    - name: 'Setup NuGet'
+      uses: NuGet/setup-nuget@v1.0.5
+      
+    - name: 'Restore NuGet Packages'
+      run: nuget restore '**/SeleniumCSharp.sln'
 
-      - name: Run Docker Container
-        run: docker run -it --rm Dockerfile
+    - name: 'Run Tests'
+      run: dotnet test '**/SeleniumCSharp.sln' --configuration Release
+
+    - name: 'Publish'
+      run: dotnet publish '**/SeleniumCSharp.csproj' --configuration Release --output ${{ env.BUILD_ARTIFACTSTAGINGDIRECTORY }}
+      
+    - name: 'Publish Build Artifacts'
+      uses: actions/upload-artifact@v2
+      with:
+        name: 'AzureTestProject'
+        path: ${{ env.BUILD_ARTIFACTSTAGINGDIRECTORY }}
