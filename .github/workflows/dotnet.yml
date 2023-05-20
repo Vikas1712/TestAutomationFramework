@@ -24,17 +24,10 @@ jobs:
           dotnet-version: '6.0.x'
 
       - name: Restore Dependencies
-        run: dotnet restore ./SeleniumCSharp
+        run: dotnet restore 
 
       - name: Build Project
-        run: dotnet build --configuration Release --no-restore ./SeleniumCSharp
+        run: dotnet build --configuration Release --no-restore 
 
       - name: Run Tests
-        run: dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage" ./SeleniumCSharp
-
-      - name: Publish Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artifact
-          path: |
-            ./SeleniumCSharp/Result/
+        run: dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage" 
