@@ -24,10 +24,10 @@ jobs:
           dotnet-version: '6.0.x'
 
       - name: Restore Dependencies
-        run: dotnet restore ./RestSharpSpecFlow
+        run: dotnet restore ./TestAutomationCSharp
 
       - name: Build Project
-        run: dotnet build --configuration Release --no-restore ./RestSharpSpecFlow
+        run: dotnet build --configuration Release --no-restore ./TestAutomationCSharp
 
       - name: Run Tests
-        run: dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage" ./RestSharpSpecFlow
+        run: dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage" ./TestAutomationCSharp
