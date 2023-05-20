@@ -1,6 +1,4 @@
-﻿using SeleniumSpecFlow.Config;
-
-namespace SeleniumSpecFlow.Base;
+﻿namespace SeleniumSpecFlow.Base;
 
 public class Base
 {

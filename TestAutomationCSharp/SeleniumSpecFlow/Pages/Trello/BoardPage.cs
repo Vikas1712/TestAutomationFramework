@@ -14,7 +14,7 @@ public class BoardPage : BasePage
 
     public bool ConfirmBoardPageIsDisplayed()
     {
-        return DriverContext.Driver.IsDisplayed(BtnCreate,Settings.DefaultWait);
+        return DriverContext.Driver.IsDisplayed(BtnCreate, Settings.DefaultWait);
     }
 
     public void CreateNewBoard(string title)

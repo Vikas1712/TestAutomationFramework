@@ -5,8 +5,6 @@ that defer the specification of one or more types until the
 classes and method is declared and instantiated by code
 */
 
-using SeleniumSpecFlow.Config;
-
 namespace SeleniumSpecFlow.Base;
 
 public abstract class BasePage : Base

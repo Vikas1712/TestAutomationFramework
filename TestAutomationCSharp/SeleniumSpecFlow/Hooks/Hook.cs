@@ -12,7 +12,7 @@ using SeleniumSpecFlow.Base;
 using SeleniumSpecFlow.Config;
 using SeleniumSpecFlow.Pages;
 
-namespace SeleniumSpecFlow.Hooks;
+namespace eleniumSpecFlow.Hooks;
 
 [Binding]
 public class Hooks
@@ -138,7 +138,7 @@ public class Hooks
                 break;
 
             case BrowserType.Chrome:
-                
+
                 ChromeOptions options = new();
                 options.AddArguments("start-maximized");
                 options.AddArguments("--disable-gpu");
@@ -147,15 +147,15 @@ public class Hooks
                 //options.AddArgument("--headless");
                 options.AddArgument("--ignore-certificate-errors");
                 Console.WriteLine("Setup");
-                if (Settings.ExecutionType=="Local")
+                if (Settings.ExecutionType == "Local")
                 {
                     DriverContext.Driver = new ChromeDriver();
                 }
                 else
                 {
                     // Specify the Docker container URL
-                    Uri dockerUri =new Uri("http://localhost:4444/wd/hub");
-                    DriverContext.Driver = new RemoteWebDriver(dockerUri,options.ToCapabilities(), TimeSpan.FromSeconds(60));
+                    Uri dockerUri = new Uri("http://localhost:4444/wd/hub");
+                    DriverContext.Driver = new RemoteWebDriver(dockerUri, options.ToCapabilities(), TimeSpan.FromSeconds(60));
                 }
                 break;
 

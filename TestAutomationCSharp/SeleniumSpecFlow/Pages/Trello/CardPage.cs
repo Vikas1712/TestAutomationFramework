@@ -63,7 +63,7 @@ public class CardPage : BasePage
         DriverContext.Driver.FindElement(ActionMore, Settings.DefaultWait).Click();
         DriverContext.Driver.FindElement(ActionCloseBoard, Settings.DefaultWait).Click();
         DriverContext.Driver.WaitForPageToLoaded();
-        DriverContext.Driver.IsDisplayed(_btnConfirmCloseBoard,Settings.DefaultWait);
+        DriverContext.Driver.IsDisplayed(_btnConfirmCloseBoard, Settings.DefaultWait);
         DriverContext.Driver.FindElement(_btnConfirmCloseBoard, Settings.DefaultWait).Click();
         DriverContext.Driver.FindElement(_linkPermanentlyBoardDelete, Settings.DefaultWait).Click();
         DriverContext.Driver.FindElement(_btnConfirmPermanentlyBoardDelete, Settings.DefaultWait).Click();
@@ -72,9 +72,9 @@ public class CardPage : BasePage
 
     private void ToDoCardCreate(string title)
     {
-        if (DriverContext.Driver.IsDisplayed(TitleToDoCard,Settings.DefaultWait))
+        if (DriverContext.Driver.IsDisplayed(TitleToDoCard, Settings.DefaultWait))
         {
-            DriverContext.Driver.IsDisplayed(_btnAddToDoCard,Settings.DefaultWait);
+            DriverContext.Driver.IsDisplayed(_btnAddToDoCard, Settings.DefaultWait);
             DriverContext.Driver.FindElement(BtnAddCard, Settings.DefaultWait).Click();
             EnterCardTitle(title);
         }
@@ -86,9 +86,9 @@ public class CardPage : BasePage
 
     private void ToDoingCreate(string title)
     {
-        if (DriverContext.Driver.IsDisplayed(TitleDoingCard,Settings.DefaultWait))
+        if (DriverContext.Driver.IsDisplayed(TitleDoingCard, Settings.DefaultWait))
         {
-            DriverContext.Driver.IsDisplayed(_btnAddDoingCard,Settings.DefaultWait);
+            DriverContext.Driver.IsDisplayed(_btnAddDoingCard, Settings.DefaultWait);
             DriverContext.Driver.FindElement(_btnAddDoingCard, Settings.DefaultWait).Click();
             EnterCardTitle(title);
         }
@@ -100,9 +100,9 @@ public class CardPage : BasePage
 
     private void ToDoneCreate(string title)
     {
-        if (DriverContext.Driver.IsDisplayed(TitleDone,Settings.DefaultWait))
+        if (DriverContext.Driver.IsDisplayed(TitleDone, Settings.DefaultWait))
         {
-            DriverContext.Driver.IsDisplayed(_btnAddDoneCard,Settings.DefaultWait);
+            DriverContext.Driver.IsDisplayed(_btnAddDoneCard, Settings.DefaultWait);
             DriverContext.Driver.FindElement(_btnAddDoneCard, Settings.DefaultWait).Click();
             EnterCardTitle(title);
         }

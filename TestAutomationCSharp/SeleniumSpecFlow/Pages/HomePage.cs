@@ -22,7 +22,7 @@ public class HomePage : BasePage
 
     private void AcceptCookiesIfPresent()
     {
-        if (DriverContext.Driver.IsDisplayed(BtnAcceptCookies,Settings.DefaultWait))
+        if (DriverContext.Driver.IsDisplayed(BtnAcceptCookies, Settings.DefaultWait))
         {
             Console.WriteLine("Click on Accept Cookies");
             DriverContext.Driver.FindElement(BtnAcceptCookies).Click();

@@ -4,21 +4,18 @@ We are using System.XML namespace and will be using
 XPathItem and XPathDocument classes to perform operations.
 */
 
-using System.Reflection;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Xml.XPath;
 using SeleniumSpecFlow.Base;
+using System.Xml.XPath;
 
 namespace SeleniumSpecFlow.Config;
 
 public static class ConfigReader
 {
-    
+
     public static void SetFrameworkSettings()
     {
         XPathItem? trelloURL = null;
-        XPathItem? username = null, password = null, browser = null, defaultWait = null, executionType=null;
+        XPathItem? username = null, password = null, browser = null, defaultWait = null, executionType = null;
 
         var strFilename = Environment.CurrentDirectory + "/Config/GlobalConfig.xml";
         FileStream stream = new(strFilename, FileMode.Open);
@@ -43,9 +40,9 @@ public static class ConfigReader
         if (browser != null)
             Settings.BrowserType = (BrowserType)Enum.Parse(typeof(BrowserType), browser.Value);
         if (defaultWait != null) Settings.DefaultWait = int.Parse(defaultWait.Value);
-        if (executionType != null) Settings.ExecutionType =executionType.Value;
+        if (executionType != null) Settings.ExecutionType = executionType.Value;
     }
-    
+
     /*
     public static TestSetting? ReadConfig()
     {

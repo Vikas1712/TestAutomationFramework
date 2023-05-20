@@ -1,8 +1,8 @@
-﻿using System.Diagnostics;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumSpecFlow.Base;
 using SeleniumSpecFlow.Config;
+using System.Diagnostics;
 
 namespace SeleniumSpecFlow.Extensions;
 
@@ -48,7 +48,7 @@ public static class WebDriverExtension
         var iframe = driver.FindElement(By.TagName("iframe"));
         DriverContext.Driver.SwitchTo().Frame(iframe);
     }
-    
+
     public static bool IsDisplayed(this IWebDriver driver, By by, int timeoutInSeconds)
     {
         try

@@ -1,6 +1,4 @@
-﻿using SeleniumSpecFlow.Base;
-
-namespace SeleniumSpecFlow.Config;
+﻿namespace SeleniumSpecFlow.Config;
 
 /*
 public class TestSetting

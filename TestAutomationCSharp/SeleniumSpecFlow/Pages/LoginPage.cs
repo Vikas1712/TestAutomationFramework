@@ -17,12 +17,12 @@ public class LoginPage : BasePage
 
     public bool LogInPageIsDisplayed()
     {
-        return DriverContext.Driver.IsDisplayed(HeaderTextLoginToTrello,Settings.DefaultWait);
+        return DriverContext.Driver.IsDisplayed(HeaderTextLoginToTrello, Settings.DefaultWait);
     }
 
     public bool AtlassianPageIsDisplayed()
     {
-        return DriverContext.Driver.IsDisplayed(HeaderTextLoginToContinue,Settings.DefaultWait);
+        return DriverContext.Driver.IsDisplayed(HeaderTextLoginToContinue, Settings.DefaultWait);
     }
 
     public void EnterEmail(string? email)
@@ -42,7 +42,7 @@ public class LoginPage : BasePage
 
     public BoardPage ClickLogInButton()
     {
-        if (DriverContext.Driver.IsDisplayed(BtnLogin,Settings.DefaultWait)) DriverContext.Driver.FindElement(BtnLogin).Click();
+        if (DriverContext.Driver.IsDisplayed(BtnLogin, Settings.DefaultWait)) DriverContext.Driver.FindElement(BtnLogin).Click();
         return GetInstance<BoardPage>();
     }
 }

@@ -9,6 +9,6 @@ public abstract class Settings
     public static string? UserName { get; set; }
     public static string? Password { get; set; }
     public static int DefaultWait { get; set; }
-    
+
     public static string? ExecutionType { get; set; }
 }
