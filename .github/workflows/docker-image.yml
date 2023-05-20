@@ -17,13 +17,13 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.5
       
     - name: 'Restore NuGet Packages'
-      run: nuget restore '**/SeleniumCSharp.sln'
+      run: nuget restore '**/*.sln'
 
     - name: 'Run Tests'
-      run: dotnet test '**/SeleniumCSharp.sln' --configuration Release
+      run: dotnet test '**/*.sln' --configuration Release
 
     - name: 'Publish'
-      run: dotnet publish '**/SeleniumCSharp.csproj' --configuration Release --output ${{ env.BUILD_ARTIFACTSTAGINGDIRECTORY }}
+      run: dotnet publish '**/*.csproj' --configuration Release --output ${{ env.BUILD_ARTIFACTSTAGINGDIRECTORY }}
       
     - name: 'Publish Build Artifacts'
       uses: actions/upload-artifact@v2
