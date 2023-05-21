@@ -36,9 +36,9 @@ jobs:
           # architecture: 'x64'
         
       - name: Install Docker
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y docker.io
+        uses: docker/setup-docker@v2
+        with:
+          version: '20.10.8'  # Replace with the desired Docker version
         
       - name: Setup Selenium Docker Containers
         run: |
