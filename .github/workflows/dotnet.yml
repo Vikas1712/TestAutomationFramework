@@ -29,5 +29,22 @@ jobs:
       - name: Build Project
         run: dotnet build --configuration Release --no-restore ./TestAutomationCSharp
 
+      - name: Set up Docker
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+        
+      - name: Install Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+        
+      - name: Setup Selenium Docker Containers
+        run: |
+          docker pull selenium/standalone-chrome
+          docker pull selenium/hub:4.0.0
+          docker run -d -p 4444:4444 --name selenium-chrome selenium/standalone-chrome
+      
       - name: Run Tests
         run: dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage" ./TestAutomationCSharp
