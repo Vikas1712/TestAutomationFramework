@@ -16,7 +16,7 @@ The framework utilizes various tools and components to facilitate efficient and 
 
 ## ✨ Instructions for Windows
 
-- Clone the repo **git clone https://github.com/knabnl-incubator/vikasyadav-knab**
+- Clone the repo **git clone https://github.com/Vikas1712/TestAutomationFramework**
 - Once done, open the solution in Visual Studio IDE or JetBrain Rider  **SeleniumCSharp.sln**
 - Install Nuget packgae **Right-click on project and click "Manage NuGet Package" and install it**
 
